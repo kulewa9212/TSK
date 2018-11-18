@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -53,7 +54,17 @@
           </Tab>
             <Tab text="Animacja">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="42.0" layoutY="58.0" prefHeight="33.0" prefWidth="105.0" text="Mass" />
+                        <Label layoutX="42.0" layoutY="114.0" prefHeight="33.0" prefWidth="105.0" text="Strength" />
+                        <Label layoutX="42.0" layoutY="172.0" prefHeight="33.0" prefWidth="105.0" text="Angle" />
+                        <TextField fx:id="massField" layoutX="147.0" layoutY="59.0" />
+                        <TextField fx:id="strengthtField" layoutX="147.0" layoutY="115.0" />
+                        <TextField fx:id="angleField" layoutX="147.0" layoutY="173.0" />
+                        <Button layoutX="42.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#checkStart" text="Sprawdź" />
+                        <TextField fx:id="result" disable="true" editable="false" layoutX="147.0" layoutY="233.0" />
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
