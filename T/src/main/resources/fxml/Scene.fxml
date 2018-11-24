@@ -9,63 +9,97 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="947.0" prefWidth="1382.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cps.FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="721.0" prefWidth="998.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cps.FXMLController">
    <children>
-      <TabPane layoutX="-6.0" prefHeight="931.0" prefWidth="1382.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="-6.0" prefHeight="721.0" prefWidth="1041.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="sygnalDyskretny" text="Prognoza">
+            <Tab text="Animation">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="682.0" prefWidth="1043.0">
+                     <children>
+                        <Label layoutX="42.0" layoutY="58.0" prefHeight="33.0" prefWidth="105.0" text="Mass [t]" />
+                        <Label layoutX="42.0" layoutY="114.0" prefHeight="33.0" prefWidth="105.0" text="Strength [MN]" />
+                        <Label layoutX="42.0" layoutY="172.0" prefHeight="33.0" prefWidth="105.0" text="Angle [dgr]" />
+                        <TextField fx:id="massField" layoutX="147.0" layoutY="59.0" />
+                        <TextField fx:id="strengthtField" layoutX="147.0" layoutY="115.0" />
+                        <TextField fx:id="angleField" layoutX="147.0" layoutY="173.0" />
+                        <Button layoutX="42.0" layoutY="377.0" mnemonicParsing="false" onMouseClicked="#checkStart" text="Check" />
+                        <TextField fx:id="result" disable="true" editable="false" layoutX="147.0" layoutY="377.0" />
+                        <Circle fx:id="planet" fill="DODGERBLUE" layoutX="691.0" layoutY="330.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fx:id="craft" fill="DODGERBLUE" layoutX="691.0" layoutY="237.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label layoutX="42.0" layoutY="218.0" prefHeight="33.0" prefWidth="105.0" text="Area [m^2}" />
+                        <Label layoutX="42.0" layoutY="251.0" prefHeight="33.0" prefWidth="105.0" text="Cd" />
+                        <TextField fx:id="areaField" layoutX="147.0" layoutY="213.0" prefHeight="26.0" prefWidth="187.0" />
+                        <TextField fx:id="CdField" layoutX="147.0" layoutY="253.0" />
+                        <Circle fx:id="craft2" fill="DODGERBLUE" layoutX="691.0" layoutY="330.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+                        <TextField fx:id="Dur" disable="true" editable="false" layoutX="147.0" layoutY="436.0" />
+                        <Label layoutX="42.0" layoutY="434.0" prefHeight="33.0" prefWidth="105.0" text="Duration" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="F(t)">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="765.0" prefWidth="1206.0">
                      <children>
-                        <ScatterChart fx:id="wykresDyskretny" layoutX="14.0" layoutY="109.0" prefHeight="449.0" prefWidth="887.0">
+                        <LineChart fx:id="lineChartF" layoutX="30.0" layoutY="49.0" prefHeight="532.0" prefWidth="915.0">
                           <xAxis>
-                            <CategoryAxis fx:id="osX" side="BOTTOM" />
+                            <CategoryAxis side="BOTTOM" />
                           </xAxis>
                           <yAxis>
-                            <NumberAxis fx:id="osY" side="LEFT" />
+                            <NumberAxis fx:id="F" side="LEFT" />
                           </yAxis>
-                        </ScatterChart>
-                        <Label layoutX="922.0" layoutY="122.0" prefHeight="35.0" prefWidth="126.0" text="Start" />
-                        <Label layoutX="922.0" layoutY="171.0" text="Koniec" />
-                        <Label layoutX="922.0" layoutY="218.0" text="p0" />
-                        <ComboBox fx:id="Start" layoutX="1024.0" layoutY="124.0" prefWidth="150.0" />
-                        <ComboBox fx:id="Koniec" layoutX="1024.0" layoutY="166.0" prefWidth="150.0" />
-                        <ComboBox fx:id="A" layoutX="1024.0" layoutY="213.0" prefWidth="150.0" />
-                        <Button layoutX="451.0" layoutY="588.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="175.0" text="Potwierdz" />
-                        <Label layoutX="944.0" layoutY="38.0" prefHeight="62.0" prefWidth="306.0" text="Wybierz parametry wejściowe">
-                           <font>
-                              <Font size="22.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="Podzial" layoutX="1024.0" layoutY="255.0" prefWidth="150.0" />
-                        <ComboBox fx:id="Rodzaj" layoutX="1024.0" layoutY="302.0" prefWidth="150.0" />
-                        <Label layoutX="922.0" layoutY="260.0" text="Podzial" />
-                        <Label layoutX="920.0" layoutY="307.0" prefHeight="21.0" prefWidth="70.0" text="Prognoza" />
-                        <Button layoutX="650.0" layoutY="588.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="159.0" text="Wyczyść" />
-                        <TextField fx:id="nazwa" layoutX="610.0" layoutY="38.0" prefHeight="31.0" prefWidth="206.0" />
-                        <Label layoutX="504.0" layoutY="37.0" prefHeight="32.0" prefWidth="94.0" text="Nazwa">
-                           <font>
-                              <Font size="25.0" />
-                           </font>
-                        </Label>
+                        </LineChart>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab text="Animacja">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <Tab text="Fx(t)">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="765.0" prefWidth="1206.0">
                      <children>
-                        <Label layoutX="42.0" layoutY="58.0" prefHeight="33.0" prefWidth="105.0" text="Mass" />
-                        <Label layoutX="42.0" layoutY="114.0" prefHeight="33.0" prefWidth="105.0" text="Strength" />
-                        <Label layoutX="42.0" layoutY="172.0" prefHeight="33.0" prefWidth="105.0" text="Angle" />
-                        <TextField fx:id="massField" layoutX="147.0" layoutY="59.0" />
-                        <TextField fx:id="strengthtField" layoutX="147.0" layoutY="115.0" />
-                        <TextField fx:id="angleField" layoutX="147.0" layoutY="173.0" />
-                        <Button layoutX="42.0" layoutY="233.0" mnemonicParsing="false" onMouseClicked="#checkStart" text="Sprawdź" />
-                        <TextField fx:id="result" disable="true" editable="false" layoutX="147.0" layoutY="233.0" />
-                     </children></AnchorPane>
-              </content>
+                        <LineChart fx:id="lineChartFx" layoutX="30.0" layoutY="49.0" prefHeight="532.0" prefWidth="915.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="F11" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Fy(t)">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="765.0" prefWidth="1206.0">
+                     <children>
+                        <LineChart fx:id="lineChartFy" layoutX="30.0" layoutY="49.0" prefHeight="532.0" prefWidth="915.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="F111" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="v(t)">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="765.0" prefWidth="1206.0">
+                     <children>
+                        <LineChart fx:id="lineChartV" layoutX="30.0" layoutY="49.0" prefHeight="532.0" prefWidth="915.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="F1" side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
         </tabs>
          <contextMenu>
